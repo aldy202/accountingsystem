@@ -7,12 +7,24 @@ import type { AppLayoutProps } from '@/types';
 export default function AppSidebarLayout({
     children,
     breadcrumbs = [],
+    title,
+    icon,
+    eyebrow,
+    eyebrowIcon,
+    actions,
 }: AppLayoutProps) {
     return (
         <AppShell variant="sidebar">
             <AppSidebar />
             <AppContent variant="sidebar" className="overflow-x-hidden">
-                <AppSidebarHeader breadcrumbs={breadcrumbs} />
+                <AppSidebarHeader
+                    breadcrumbs={breadcrumbs}
+                    title={title}
+                    icon={icon}
+                    eyebrow={eyebrow}
+                    eyebrowIcon={eyebrowIcon}
+                    actions={actions}
+                />
                 {children}
             </AppContent>
         </AppShell>

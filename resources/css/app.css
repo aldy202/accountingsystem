@@ -9,70 +9,7 @@
 
 @theme {
     --font-sans:
-        'Instrument Sans', ui-sans-serif, system-ui, sans-serif,
-        'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
-        'Noto Color Emoji';
-
-    --radius-lg: var(--radius);
-    --radius-md: calc(var(--radius) - 2px);
-    --radius-sm: calc(var(--radius) - 4px);
-
-    --color-background: var(--background);
-    --color-foreground: var(--foreground);
-
-    --color-card: var(--card);
-    --color-card-foreground: var(--card-foreground);
-
-    --color-popover: var(--popover);
-    --color-popover-foreground: var(--popover-foreground);
-
-    --color-primary: var(--primary);
-    --color-primary-foreground: var(--primary-foreground);
-
-    --color-secondary: var(--secondary);
-    --color-secondary-foreground: var(--secondary-foreground);
-
-    --color-muted: var(--muted);
-    --color-muted-foreground: var(--muted-foreground);
-
-    --color-accent: var(--accent);
-    --color-accent-foreground: var(--accent-foreground);
-
-    --color-destructive: var(--destructive);
-    --color-destructive-foreground: var(--destructive-foreground);
-
-    --color-border: var(--border);
-    --color-input: var(--input);
-    --color-ring: var(--ring);
-
-    --color-chart-1: var(--chart-1);
-    --color-chart-2: var(--chart-2);
-    --color-chart-3: var(--chart-3);
-    --color-chart-4: var(--chart-4);
-    --color-chart-5: var(--chart-5);
-
-    --color-sidebar: var(--sidebar);
-    --color-sidebar-foreground: var(--sidebar-foreground);
-    --color-sidebar-primary: var(--sidebar-primary);
-    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-    --color-sidebar-accent: var(--sidebar-accent);
-    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-    --color-sidebar-border: var(--sidebar-border);
-    --color-sidebar-ring: var(--sidebar-ring);
-}
-
-@import 'tailwindcss';
-
-@import 'tw-animate-css';
-
-@source '../views';
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-
-@custom-variant dark (&:is(.dark *));
-
-@theme {
-    --font-sans:
-        'Instrument Sans', ui-sans-serif, system-ui, sans-serif,
+        'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif,
         'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
         'Noto Color Emoji';
 
@@ -111,6 +48,10 @@
     --color-info: var(--info);
     --color-info-foreground: var(--info-foreground);
 
+    /* Surface — layer/container tambahan di luar card & muted */
+    --color-surface: var(--surface);
+    --color-surface-foreground: var(--surface-foreground);
+
     --color-border: var(--border);
     --color-input: var(--input);
     --color-ring: var(--ring);
@@ -133,54 +74,76 @@
     /* Page Login */
     --color-primary-login: var(--primary-login);
     --color-primary-login-hover: var(--primary-login-hover);
-
-
 }
 
 :root {
-    --background: oklch(1 0 0);
-    --foreground: oklch(0.145 0 0);
-    --card: oklch(1 0 0);
-    --card-foreground: oklch(0.145 0 0);
-    --popover: oklch(1 0 0);
-    --popover-foreground: oklch(0.145 0 0);
-    --primary: oklch(0.205 0 0);
-    --primary-foreground: oklch(0.985 0 0);
-    --secondary: oklch(0.97 0 0);
-    --secondary-foreground: oklch(0.205 0 0);
-    --muted: oklch(0.97 0 0);
-    --muted-foreground: oklch(0.556 0 0);
-    --accent: oklch(0.97 0 0);
-    --accent-foreground: oklch(0.205 0 0);
-    --destructive: oklch(0.577 0.245 27.325);
-    --destructive-foreground: oklch(0.577 0.245 27.325);
-    --border: oklch(0.922 0 0);
-    --input: oklch(0.922 0 0);
-    --ring: oklch(0.87 0 0);
-    --chart-1: oklch(0.646 0.222 41.116);
-    --chart-2: oklch(0.6 0.118 184.704);
-    --chart-3: oklch(0.398 0.07 227.392);
-    --chart-4: oklch(0.828 0.189 84.429);
-    --chart-5: oklch(0.769 0.188 70.08);
+    --background: #F9F9FFCC;
+    --foreground: #1F2937;
+
+    --card: #FFFFFF;
+    --card-foreground: #1F2937;
+
+    --popover: #FFFFFF;
+    --popover-foreground: #1F2937;
+
+    /* Primary — Core brand identity, high-priority actions & navigation */
+    --primary: #621BCB;
+    --primary-foreground: #FFFFFF;
+
+    /* Secondary dipetakan ke Surface brand (dipakai di banyak komponen shadcn) */
+    --secondary: #E7EEFE;
+    --secondary-foreground: #1F2937;
+
+    --muted: #F3F4F6;
+    --muted-foreground: #6B7280;
+
+    --accent: #E7EEFE;
+    --accent-foreground: #621BCB;
+
+    /* Error / Reject */
+    --destructive: #BA1A1A;
+    --destructive-foreground: #FFFFFF;
+
+    --border: #E5E7EB;
+    --input: #E5E7EB;
+    --ring: #621BCB;
+
+    --chart-1: #621BCB;
+    --chart-2: #4EDEA3;
+    --chart-3: #FC79BD;
+    --chart-4: #BA1A1A;
+    --chart-5: #E7EEFE;
+
     --radius: 0.625rem;
-    --sidebar: oklch(0.985 0 0);
-    --sidebar-foreground: oklch(0.145 0 0);
-    --sidebar-primary: oklch(0.205 0 0);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
-    --sidebar-accent: oklch(0.97 0 0);
-    --sidebar-accent-foreground: oklch(0.205 0 0);
-    --sidebar-border: oklch(0.922 0 0);
-    --sidebar-ring: oklch(0.87 0 0);
-    --success: #22C55E;
-    --success-foreground: #FFFFFF;
-    --warning: #F59E0B;
-    --warning-foreground: #1F2937;
+
+    /* Success / Approve */
+    --success: #4EDEA3;
+    --success-foreground: #0B3B2E;
+
+    /* Warning / Pending */
+    --warning: #FC79BD;
+    --warning-foreground: #4A0E2A;
+
     --info: #3B82F6;
     --info-foreground: #FFFFFF;
 
+    /* Surface — background layer & secondary structural container */
+    --surface: #E7EEFE;
+    --surface-foreground: #1F2937;
+
+    /* Sidebar — putih dengan aksen ungu untuk item aktif */
+    --sidebar: #FFFFFF;
+    --sidebar-foreground: #1F2937;
+    --sidebar-primary: #621BCB;
+    --sidebar-primary-foreground: #FFFFFF;
+    --sidebar-accent: #E6DEFF;
+    --sidebar-accent-foreground: #1F2937;
+    --sidebar-border: #E5E7EB;
+    --sidebar-ring: #621BCB;
+
     /* Page Login */
-    --primary-login: #4A347D;
-    --primary-login-hover: #5A4195;
+    --primary-login: #621BCB;
+    --primary-login-hover: #5015A8;
 }
 
 .dark {
@@ -228,24 +191,24 @@
     --popover: #FFFFFF;
     --popover-foreground: #1F2937;
 
-    --primary: #4A347D;
+    --primary: #621BCB;
     --primary-foreground: #FFFFFF;
 
-    --secondary: #F0528A;
-    --secondary-foreground: #FFFFFF;
+    --secondary: #E7EEFE;
+    --secondary-foreground: #1F2937;
 
     --muted: #F3F4F6;
     --muted-foreground: #6B7280;
 
-    --accent: #F3F4F6;
-    --accent-foreground: #1F2937;
+    --accent: #E7EEFE;
+    --accent-foreground: #621BCB;
 
-    --destructive: #EF4444;
+    --destructive: #BA1A1A;
     --destructive-foreground: #FFFFFF;
 
     --border: #E5E7EB;
     --input: #E5E7EB;
-    --ring: #4A347D;
+    --ring: #621BCB;
 }
 
 @layer base {

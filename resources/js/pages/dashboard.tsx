@@ -1,7 +1,8 @@
 import { Head } from '@inertiajs/react';
+import { LayoutGrid } from 'lucide-react';
 import { PlaceholderPattern } from '@/components/ui/placeholder-pattern';
 import { dashboard } from '@/routes';
-
+// Tidak digunakan lagi
 export default function Dashboard() {
     return (
         <>
@@ -31,6 +32,7 @@ Dashboard.layout = {
         {
             title: 'Dashboard',
             href: dashboard(),
+            icon: LayoutGrid,
         },
     ],
 };

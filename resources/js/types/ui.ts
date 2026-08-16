@@ -1,9 +1,16 @@
+import type { LucideIcon } from 'lucide-react';
 import type { ReactNode } from 'react';
 import type { BreadcrumbItem } from '@/types/navigation';
+
 
 export type AppLayoutProps = {
     children: ReactNode;
     breadcrumbs?: BreadcrumbItem[];
+    title?: string;
+    icon?: LucideIcon;
+    eyebrow?: string;
+    eyebrowIcon?: LucideIcon;
+    actions?: ReactNode;
 };
 
 export type AppVariant = 'header' | 'sidebar';
@@ -19,3 +26,4 @@ export type AuthLayoutProps = {
     title?: string;
     description?: string;
 };
+

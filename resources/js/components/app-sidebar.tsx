@@ -1,7 +1,25 @@
 import { Link } from '@inertiajs/react';
-import { BookOpen, FolderGit2, LayoutGrid } from 'lucide-react';
+
+import {
+    Banknote,
+    Building2,
+    Calculator,
+    ClipboardList,
+    FileBarChart,
+    FileSpreadsheet,
+    FileText,
+    FolderKanban,
+    Landmark,
+    LayoutGrid,
+    ListTree,
+    Percent,
+    Receipt,
+    Scale,
+    TrendingUp,
+    Truck,
+    Users,
+} from 'lucide-react';
 import AppLogo from '@/components/app-logo';
-import { NavFooter } from '@/components/nav-footer';
 import { NavMain } from '@/components/nav-main';
 import { NavUser } from '@/components/nav-user';
 import {
@@ -10,54 +28,80 @@ import {
     SidebarFooter,
     SidebarHeader,
     SidebarMenu,
-    SidebarMenuButton,
-    SidebarMenuItem,
 } from '@/components/ui/sidebar';
-import { dashboard } from '@/routes';
-import type { NavItem } from '@/types';
 
-const mainNavItems: NavItem[] = [
-    {
-        title: 'Dashboard',
-        href: dashboard(),
-        icon: LayoutGrid,
-    },
-];
+import accountspayable from '@/routes/accountspayable';
+import clientinvoices from '@/routes/clientinvoices';
+import clients from '@/routes/clients';
+import dashboard from '@/routes/dashboard';
+import generalledger from "@/routes/generalledger";
+import type { NavGroup } from '@/types';
 
-const footerNavItems: NavItem[] = [
+
+const navGroups: NavGroup[] = [
     {
-        title: 'Repository',
-        href: 'https://github.com/laravel/react-starter-kit',
-        icon: FolderGit2,
+        title: 'PLATFORM',
+        items: [
+            { title: 'Dashboard', href: dashboard.index(), icon: LayoutGrid },
+            {
+                title: 'Accounts Payable',
+                icon: ClipboardList,
+                items: [
+                    { title: 'Purchase', href: accountspayable.index(), icon: Calculator },
+                    { title: 'Payments', href: '#' }, // masih bisa di ganti
+                    { title: 'Purchase Orders', href: '#' }, // masih bisa di ganti
+                ],
+            },
+            { title: 'Client Invoices', href: clientinvoices.index(), icon: FileText },
+            { title: 'General Ledger', href: generalledger.index(), icon: Banknote },
+        ],
     },
     {
-        title: 'Documentation',
-        href: 'https://laravel.com/docs/starter-kits#react',
-        icon: BookOpen,
+        title: 'MASTER DATA',
+        items: [
+            { title: 'Clients', href: clients.index(), icon: Users },
+            { title: 'Vendors', href: '#', icon: Truck },
+            { title: 'Projects', href: '#', icon: FolderKanban },
+            { title: 'Chart of Accounts', href: '#', icon: ListTree },
+            { title: 'Departments', href: '#', icon: Building2 },
+        ],
+    },
+    {
+        title: 'TAX',
+        items: [
+            { title: 'Tax Master', href: '#', icon: Percent },
+            { title: 'Rekap PPh', href: '#', icon: FileBarChart },
+            { title: 'Rekap PPN', href: '#', icon: FileSpreadsheet },
+            { title: 'Gross-Up Calculator', href: '#', icon: Calculator },
+        ],
+    },
+    {
+        title: 'REPORTS',
+        items: [
+            { title: 'Trial Balance', href: '#', icon: Scale },
+            { title: 'Balance Sheet', href: '#', icon: Landmark },
+            { title: 'Profit & Loss', href: '#', icon: TrendingUp },
+            { title: 'Cashflow Statement', href: '#', icon: Receipt },
+        ],
     },
 ];
 
 export function AppSidebar() {
     return (
-        <Sidebar collapsible="icon" variant="inset">
+        <Sidebar collapsible="icon">
             <SidebarHeader>
                 <SidebarMenu>
-                    <SidebarMenuItem>
-                        <SidebarMenuButton size="lg" asChild>
-                            <Link href={dashboard()} prefetch>
-                                <AppLogo />
-                            </Link>
-                        </SidebarMenuButton>
-                    </SidebarMenuItem>
+                    <Link href={dashboard.index()} prefetch>
+                        <AppLogo />
+                    </Link>
                 </SidebarMenu>
             </SidebarHeader>
 
             <SidebarContent>
-                <NavMain items={mainNavItems} />
+                <NavMain groups={navGroups} />
             </SidebarContent>
 
             <SidebarFooter>
-                <NavFooter items={footerNavItems} className="mt-auto" />
                 <NavUser />
             </SidebarFooter>
         </Sidebar>

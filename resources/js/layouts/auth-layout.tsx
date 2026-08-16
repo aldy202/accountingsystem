@@ -1,17 +1,15 @@
-import AuthLayoutTemplate from '@/layouts/auth/auth-simple-layout';
+import AppLayoutTemplate from '@/layouts/app/app-sidebar-layout';
+import type { AppLayoutProps } from '@/types';
 
-export default function AuthLayout({
-    title = '',
-    description = '',
+export default function AppLayout({
+    breadcrumbs = [],
+    title,
+    icon,
     children,
-}: {
-    title?: string;
-    description?: string;
-    children: React.ReactNode;
-}) {
+}: AppLayoutProps) {
     return (
-        <AuthLayoutTemplate title={title} description={description}>
+        <AppLayoutTemplate breadcrumbs={breadcrumbs} title={title} icon={icon}>
             {children}
-        </AuthLayoutTemplate>
+        </AppLayoutTemplate>
     );
 }

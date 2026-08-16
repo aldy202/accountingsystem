@@ -1,4 +1,16 @@
+import type { route as routeFn } from 'ziggy-js';
 import type { Auth } from '@/types/auth';
+
+
+declare global {
+    interface Window {
+        route: typeof routeFn;
+    }
+
+    const route: typeof routeFn;
+}
+
+export { };
 
 declare module 'react' {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars

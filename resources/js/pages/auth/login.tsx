@@ -3,8 +3,9 @@ import type { FormEventHandler } from "react";
 
 import BrandingSection from "@/features/auth/components/BrandingSection";
 import FooterSection from "@/features/auth/components/FooterSection";
-import AuthLayout from "@/layouts/AuthLayout";
 import LoginForm from "@/features/auth/components/LoginForm";
+import AuthLayout from "@/layouts/AuthLayout";
+
 
 interface LoginPageForm {
     email: string;

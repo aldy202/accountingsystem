@@ -137,7 +137,7 @@ export function AppHeader({ breadcrumbs = [] }: Props) {
                     <Link
                         href={dashboard()}
                         prefetch
-                        className="flex items-center space-x-2"
+                        className="flex w-full items-center justify-center"
                     >
                         <AppLogo />
                     </Link>
