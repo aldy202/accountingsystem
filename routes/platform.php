@@ -16,11 +16,13 @@ Route::group(['prefix' => 'dashboard'], function () {
 // accountspayable
 Route::group(['prefix' => 'accountspayable'], function () {
     Route::get('/', [AccountspayableController::class, 'index'])->name('accountspayable.index');
+    Route::get('/{id}', [AccountspayableController::class, 'detail'])->name('accountspayable.detail');
 });
 
 // client invoices
 Route::group(['prefix' => 'clientinvoices'], function () {
     Route::get('/', [ClientinvoiceController::class, 'index'])->name('clientinvoices.index');
+    Route::get('/create', [ClientinvoiceController::class, 'create'])->name('clientinvoices.create');
 });
 
 // General Ledger

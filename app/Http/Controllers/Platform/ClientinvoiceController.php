@@ -9,8 +9,13 @@ use Inertia\Response;
 
 class ClientinvoiceController extends Controller
 {
-    public function index() : Response {
-        return Inertia::render('platform/clientinvoice/index');
+    public function index(): Response
+    {
+        return Inertia::render('platform/clientinvoices/index');
+    }
 
+    public function create(): Response
+    {
+        return Inertia::render('platform/clientinvoices/create');
     }
 }

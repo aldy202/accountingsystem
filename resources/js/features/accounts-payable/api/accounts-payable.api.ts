@@ -4,6 +4,7 @@ import type {
     ApBillFilters,
     PaginatedResponse,
 } from '../types/accounts-payable.types';
+import type { ApBillDetail } from '../types/ap-detail.types';
 
 export async function fetchApBills(
     filters: ApBillFilters,
@@ -12,6 +13,12 @@ export async function fetchApBills(
         '/accounts-payable/bills',
         { params: filters },
     );
+
+    return data;
+}
+
+export async function fetchApBillDetail(id: string): Promise<ApBillDetail> {
+    const { data } = await api.get<ApBillDetail>(`/accounts-payable/bills/${id}`);
 
     return data;
 }

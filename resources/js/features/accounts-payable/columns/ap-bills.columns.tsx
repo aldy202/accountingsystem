@@ -2,6 +2,7 @@ import { Link } from '@inertiajs/react';
 import type { ColumnDef } from '@tanstack/react-table';
 import { Eye } from 'lucide-react';
 import { formatCurrency } from '@/lib/format';
+import accountspayable from '@/routes/accountspayable';
 import { ApStatusBadge } from '../components/ApStatusBadge';
 import type { ApBill } from '../types/accounts-payable.types';
 
@@ -63,9 +64,9 @@ export const apBillsColumns: ColumnDef<ApBill>[] = [
     {
         id: 'action',
         header: 'Action',
-        cell: () => (
+        cell: ({ row }) => (
             <Link
-                href="#"
+                href={accountspayable.detail(row.original.id)}
                 className="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"
             >
                 Detail

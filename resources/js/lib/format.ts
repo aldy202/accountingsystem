@@ -3,3 +3,15 @@ export function formatCurrency(value: number): string {
 
     return `${value < 0 ? '-' : ''}Rp ${absFormatted}`;
 }
+
+export function formatDate(isoDate: string | null): string {
+    if (!isoDate) {
+        return '-';
+    }
+
+    return new Date(isoDate).toLocaleDateString('id-ID', {
+        day: '2-digit',
+        month: 'short',
+        year: 'numeric',
+    });
+}
