@@ -9,7 +9,7 @@ interface BreadcrumbEntry {
 
 interface DetailPageHeaderProps {
     breadcrumbs: BreadcrumbEntry[];
-    title: string;
+    title: ReactNode;
     subtitle?: string;
     actions?: ReactNode;
 }
@@ -39,7 +39,9 @@ export function DetailPageHeader({
 
             <div className="flex items-start justify-between gap-4">
                 <div className="flex flex-col gap-1">
-                    <h1 className="text-2xl font-bold text-foreground">{title}</h1>
+                    <h1 className="flex items-center gap-3 text-2xl font-bold text-foreground">
+                        {title}
+                    </h1>
                     {subtitle && (
                         <p className="text-sm text-muted-foreground">{subtitle}</p>
                     )}

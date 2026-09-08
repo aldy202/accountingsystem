@@ -4,8 +4,6 @@ use App\Http\Controllers\Platform\AccountspayableController;
 use App\Http\Controllers\Platform\ClientinvoiceController;
 use App\Http\Controllers\Platform\DashboardController;
 use App\Http\Controllers\Platform\GeneralledgerController;
-use App\Http\Controllers\Settings\ProfileController;
-use App\Http\Controllers\Settings\SecurityController;
 use Illuminate\Support\Facades\Route;
 
 // dashboard
@@ -28,4 +26,6 @@ Route::group(['prefix' => 'clientinvoices'], function () {
 // General Ledger
 Route::prefix('generalledger')->group(function () {
     Route::get('/', [GeneralledgerController::class, 'index'])->name('generalledger.index');
+    Route::get('/create', [GeneralledgerController::class, 'create'])->name('generalledger.create');
+    Route::get('/{id}', [GeneralledgerController::class, 'detail'])->name('generalledger.detail');
 });
